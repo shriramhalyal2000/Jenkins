@@ -8,6 +8,11 @@ pipeline{
                 echo "Building the project..."
                 '''
             }
+            steps(building docker image){
+                sh '''
+                docker login -u "$DOCKER_USER" -p 
+                cd /home/usr/project          
+            }
         }
     }
 }
