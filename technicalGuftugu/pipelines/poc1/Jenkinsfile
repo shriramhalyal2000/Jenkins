@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    scm checkout
+    stages{
+        stage("Feature integration"){
+            steps{
+                sh '''
+                echo "Integrating feature branch to main branch"
+                git checkout main
+                git merge feature_branch 
+                '''
+            }
+        }
+    }
+}
