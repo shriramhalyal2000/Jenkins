@@ -1,0 +1,13 @@
+pipeline{
+    agents none
+    stages{
+        stage ("build"){
+            agent (docker:"#image name to run")
+            steps{
+                sh '''
+                 this taks is executed on docker container by jenkins aws for buld task
+                '''
+            }
+        }
+    }
+}}
