@@ -2,11 +2,13 @@ pipeline{
     agents none
     stages{
         stage ("build"){
-            agent (docker:"#image name to run")
-            steps{
-                sh '''
-                 this taks is executed on docker container by jenkins aws for buld task
-                '''
+            agent{
+                docker {
+                    image 'node:20-alpine'
+                }
+                steps{
+                    sh 'node --version'
+                }
             }
         }
     }
